@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 const USER_DATA = [
   {
     id: 1,
@@ -54,12 +55,11 @@ const COLUMNS_SCHEMA = [
 ];
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css']
 })
-export class AppComponent {
-
+export class RegistrationComponent implements OnInit {
   hide = true; //password
 
   title = 'task';
@@ -74,7 +74,7 @@ export class AppComponent {
   }
 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,public router:Router) { }
 
   form = this.formBuilder.group({
     fullname: ['', [Validators.required]],
@@ -131,5 +131,13 @@ displayedColumns: string[] = COLUMNS_SCHEMA.map((col) => col.key);
   removeRow(id: number) {
     this.dataSource = this.dataSource.filter((u) => u.id !== id);
   } 
+
+  onSubmit(){
+    this.router.navigateByUrl("/login");
+  }
+
+
+  ngOnInit(): void {
+  }
 
 }
