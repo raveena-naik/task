@@ -1,50 +1,67 @@
 <!-- <app-registration></app-registration> -->
 
-            <!-- Registration form -->
-            <div class="flex-container" style="padding-bottom: 128px;">
-                <div class="form-container mt-5 mb-5">
-                  <h4 class="text-center mb-4	">Registration Form</h4>
-              
-                  <form class="example-form" [formGroup]="form" #ngForm="ngForm">
-                    <mat-form-field class="example-full-width mb-3" appearance="fill" color="accent">
-                      <mat-label>User Name</mat-label>
-                      <input type="text" matInput #fullname maxlength="40" formControlName="fullname"
-                        onkeypress="return (event.charCode>=65 && event.charCode<=90) || (event.charCode>=97&&event.charCode<=122) || (event.charCode==32)">
-                      <mat-error>Username is required</mat-error>
-                      <mat-hint align="end">{{fullname.value.length}} /40 </mat-hint>
-                    </mat-form-field>
-              
-                    <div class="example-container">
-                      <mat-form-field appearance="fill" class="example-full-width mb-3" >
-                        <mat-label>Enter your email</mat-label>
-                        <input matInput placeholder="pat@example.com"  formControlName="email" required>
-                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                      </mat-form-field>
-                    </div>
-              
-                    <mat-form-field appearance="fill" class="example-full-width mb-3">
-                      <mat-label>Enter your password</mat-label>
-                      <input matInput [type]="hide ? 'password' : 'text'" formControlName="pass">
-                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                      </button>
-                      <mat-error>password is required</mat-error>
-                    </mat-form-field>
-              
-                    <mat-form-field class="example-full-width mb-3" appearance="fill" color="accent">
-                      <mat-label>Address</mat-label>
-                      <textarea matInput #add maxlength="200" formControlName="add"></textarea>
-                      <mat-error>Address is required</mat-error>
-                      <mat-hint align="end">{{add.value.length}} /200 </mat-hint>
-                    </mat-form-field>
-              
-                    <div class="text-center"> <button mat-raised-button color="accent"  >Register</button></div>
-                  </form>
-                </div>
-              </div>
+<!-- Registration form -->
+<!-- <div class="flex-container" style="padding-bottom: 128px;">
+  <div class="form-container mt-5 mb-5">
+    <h4 class="text-center mb-4	">Registration Form</h4>
 
+    <form class="example-form" [formGroup]="form" #ngForm="ngForm">
+      <mat-form-field class="example-full-width mb-3" appearance="fill" color="accent">
+        <mat-label>User Name</mat-label>
+        <input type="text" matInput #fullname maxlength="40" formControlName="fullname"
+          onkeypress="return (event.charCode>=65 && event.charCode<=90) || (event.charCode>=97&&event.charCode<=122) || (event.charCode==32)">
+        <mat-error>Username is required</mat-error>
+        <mat-hint align="end">{{fullname.value.length}} /40 </mat-hint>
+      </mat-form-field>
 
-              <!-- login form -->
+      <div class="example-container">
+        <mat-form-field appearance="fill" class="example-full-width mb-3">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill" class="example-full-width mb-3">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="pass">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error>password is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width mb-3" appearance="fill" color="accent">
+        <mat-label>Address</mat-label>
+        <textarea matInput #add maxlength="200" formControlName="add"></textarea>
+        <mat-error>Address is required</mat-error>
+        <mat-hint align="end">{{add.value.length}} /200 </mat-hint>
+      </mat-form-field>
+
+      <div class="text-center">
+        <button mat-raised-button color="accent">Register</button>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<!-- <div class="flex-container">
+  <div class="example-form d-flex justify-content-center" style="padding-top: 200px; padding-bottom: 200px;">
+    <div class="text-center m-5 p-4"> <button mat-raised-button class="p-5 " style="font-size: 30px;">Teachers</button>
+    </div>
+    <div class="text-center m-5 p-4"> <button mat-raised-button class="p-5" style="font-size: 30px;">Students</button>
+    </div>
+    <div class="text-center m-5 p-4 "> <button mat-raised-button class="p-5" style="font-size: 30px;">Principle</button>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="flex-container"> -->
+<router-outlet></router-outlet>
+<!-- </div> -->
+
+<!-- login form -->
 <!-- <div class="flex-container" style="padding-bottom: 340px;">
     <div class="form-container mt-5 mb-5" >
       <h4 class="text-center mb-4	">Login Form</h4>
@@ -70,7 +87,7 @@
     </div>
   </div> -->
 
-  <!-- home page -->
+<!-- home page -->
 <!-- <div class="flex-container" style="padding-bottom: 50px;">
     <div class="example-form d-flex justify-content-center" style="padding-top: 200px; padding-bottom: 200px;">
     <div class="text-center m-5 p-4" > <button mat-raised-button  class="p-5 " style="font-size: 30px;">Teachers</button></div>
@@ -78,5 +95,3 @@
     <div class="text-center m-5 p-4 "> <button mat-raised-button  class="p-5" style="font-size: 30px;">Principle</button></div>
     </div>
   </div> -->
-
-
